@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Welcome to JoinUp</h1>
+
+This is the place to meet new people.
+
+<h2>Find groups by interest</h2>
+<div class="grid">
+{% for tag in tags %}
+    <a href="{% url 'tag_view' tag_name=tag.name %}">
+        {{ tag.name }}
+    </a>
+{% endfor %}
+</div>
+
+{% endblock %}

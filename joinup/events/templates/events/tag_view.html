@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Find groups interested in {{ tag.name }}:</h1>
+
+<div class="grid">
+{% for group in groups %}
+    <a href="{% url 'group_view' group_name=group.name_url %}">
+        {{ group.name }}
+    </a>
+{% endfor %}
+</div>
+
+{% endblock %}

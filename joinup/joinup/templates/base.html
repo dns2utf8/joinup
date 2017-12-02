@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }} - JoinUp</title>
+    <link rel="stylesheet" href="{% static 'joinup/base.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
+</head>
+<body>
+    <header>
+        <div>
+            <h1><a href="/">JoinUp</a></h1>
+        </div>
+        <div class="buttons">
+            <a href="/accounts/signup">Signup</a>
+            <a href="/accounts/login">Login</a>
+        </div>
+    </header>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+    <footer>
+        <div>See the source on <a href="#source-link">"Plattform"</a>.</div>
+    </footer>
+    <script src="{% static 'joinup/grid_random_background_color.js' %}"></script>
+</body>
+</html>

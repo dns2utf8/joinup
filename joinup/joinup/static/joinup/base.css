@@ -1,0 +1,104 @@
+@font-face {
+font-family: 'Nimbus Sans';
+src:
+    local('Nimbus Sans'),
+    url('NimbusSans-Regular.otf');
+}
+@font-face {
+font-family: 'Cantarell';
+src:
+    local('Cantarell'),
+    url('Cantarell-Regular.otf');
+}
+
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #fff;
+}
+
+html, body {
+    font-family: "Cantarell";
+    font-size: 14px;
+}
+
+body {
+    margin: 0px; padding: 0px;
+    background-color: #303017;
+}
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #b6b68d;
+    padding: 0rem 2rem;
+}
+header a {
+    color: #000;
+    text-decoration: none;
+}
+header a:hover, header a:active {
+    color: #fff;
+}
+header > div.buttons {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+header > div > h1 {
+    margin: 1.4rem;
+    font-size: 2rem;
+}
+header > div > a {
+    margin: 2rem;
+    margin-left: 0rem;
+    font-size: 1.3rem;
+}
+
+
+section {
+    overflow: auto;
+    padding: 2rem;
+    background: #fff;
+}
+
+footer, footer * {
+    color: #fff;
+}
+footer a:hover, footer a:active, section a:hover, section a:active {
+    color: #b6b68d;
+}
+footer > div {
+    margin: 2rem;
+}
+
+.box {
+    margin: 0.1rem;
+    border: #ddd 1px solid;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+}
+.grid > * {
+    margin: 1rem;
+    min-width: 13rem;
+    min-height: 7rem;
+    background: #eee;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    vertical-align: middle;
+}
+.grid > *:hover {
+    background: #555;
+    color: #fff;
+}
