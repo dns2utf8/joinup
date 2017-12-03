@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'joinup.com',
     'www.joinup.com',
-    'joinup.pythonanywhere.com ',
+    'joinup.pythonanywhere.com',
 ]
 
 
