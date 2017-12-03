@@ -74,6 +74,14 @@ footer a:hover, footer a:active, section a:hover, section a:active {
 footer > div {
     margin: 2rem;
 }
+footer > div.links > * {
+    border-right: 1px solid #fff;
+    padding-right: 1rem;
+    margin-right: 0.6rem;
+}
+footer > div.links > *:last-child {
+    border: 0px none;
+}
 
 .box {
     margin: 0.1rem;

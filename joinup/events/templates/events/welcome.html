@@ -13,6 +13,11 @@ This is the place to meet new people.
     <a href="{% url 'tag_view' tag_name=tag.name %}">
         {{ tag.name }}
     </a>
+{% empty %}
+    <div>
+        Sorry no tags registered. <br>
+        Add a tag to your group today!
+    </div>
 {% endfor %}
 </div>
 
