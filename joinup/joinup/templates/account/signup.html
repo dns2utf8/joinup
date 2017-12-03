@@ -3,26 +3,26 @@
 {% load i18n %}
 
 {% block content %}
-<h1>Login</h1>
+<h1>Sign up</h1>
 
 <div>
-    <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-        <legend>{% trans "Log in to an existing account" %}</legend>
+    <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+        <legend>{% trans "Register a new account" %}</legend>
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
-        <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
     </form>
-    {% if ACCOUNT_OPEN_SIGNUP %}
-        <p class="login-signup">
-            <small>
-                {% trans "Don't have an account?" %}  <strong><a href="{% url 'account_signup' %}">{% trans "Sign up" %}</a></strong>
-            </small>
-        </p>
-    {% endif %}
+    <p class="login-signup">
+        <small>
+            {% trans "Already have an account?" %}  <strong><a href="{% url 'account_login' %}">{% trans "Log in" %}</a></strong>
+        </small>
+    </p>
 </div>
 
 <script>
