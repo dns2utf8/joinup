@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page_title }} - JoinUp</title>
+    <title>{% if page_title %} {{ page_title }} - {% endif %} JoinUp</title>
     <link rel="stylesheet" href="{% static 'joinup/base.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
 </head>
@@ -29,5 +29,6 @@
         </div>
     </footer>
     <script src="{% static 'joinup/grid_random_background_color.js' %}"></script>
+    <script src="{% static 'joinup/redirect_tls.js' %}"></script>
 </body>
 </html>
