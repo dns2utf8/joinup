@@ -21,4 +21,18 @@ This is the place to meet new people.
 {% endfor %}
 </div>
 
+<h2>Checkout the latest groups</h2>
+<div class="grid">
+{% for group in groups %}
+    <a href="{% url 'group_view' group_name=group.name %}">
+        {{ tag.name }}
+    </a>
+{% empty %}
+    <div>
+        Sorry no groups registered. <br>
+        Add your group today!
+    </div>
+{% endfor %}
+</div>
+
 {% endblock %}

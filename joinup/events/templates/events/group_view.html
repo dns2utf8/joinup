@@ -4,7 +4,10 @@
 {% block content %}
 
 <h1>Welcome to {{ group.name }}</h1>
-{{ group.text }}
+
+<div>
+    {{ group.text }}
+</div>
 
 <h2>Upcomming events</h2>
 {% for event in events %}
@@ -18,5 +21,14 @@
         No event scheduley yet.
     </div>
 {% endfor %}
+
+<h2>Meta</h2>
+
+<table>
+    <tr>
+        <td>Created at:</td>
+        <td>{{ group.created_date }}</td>
+    </tr>
+</table>
 
 {% endblock %}

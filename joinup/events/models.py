@@ -11,14 +11,19 @@ class Tag(models.Model):
 
 class Group(models.Model):
     members = models.ManyToManyField('auth.User')
-    tags = models.ManyToManyField(Tag)
-    name = models.CharField(max_length=5000)
-    name_url = models.CharField(max_length=5000)
+    tags = models.ManyToManyField(Tag, blank=True)
+    name = models.CharField(max_length=4000, unique=True)
+    name_url = models.CharField(max_length=4000, unique=True)
     text = models.TextField()
+    created_date = models.DateTimeField()
 
-    def prepare_database_save(self, field):
-        if field == 'name':
-            self.name_url = slugify(self.name)
+    #def prepare_database_save(self, field):
+    #    print('debug prepare_db_save: '+field)
+    #    if field == 'name':
+    #        name = self.name
+    #        first_letter = name[0].upper()
+    #        self.name = first_letter + name[1:]
+    #        self.name_url = slugify(self.name)
     #def save(self, force_insert=False, force_update=False, using=None,
     #         update_fields=None):
     #    self.name_url = slugify(self.name)

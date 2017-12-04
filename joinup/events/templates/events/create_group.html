@@ -5,6 +5,14 @@
 
 <h1>Create new group</h1>
 
-TODO ...
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.errors }}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn-default">Create group</button>
+</form>
 
 {% endblock %}
