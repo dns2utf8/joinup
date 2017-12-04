@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.gitlab',
-    'allauth.socialaccount.providers.meetup',
-    'allauth.socialaccount.providers.twitter',
+    #'allauth.socialaccount.providers.gitlab',
+    #'allauth.socialaccount.providers.meetup',
+    #'allauth.socialaccount.providers.twitter',
 
     # local modules
     'events',
