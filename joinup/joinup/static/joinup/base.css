@@ -15,6 +15,7 @@ src:
 a {
     color: #000;
     text-decoration: none;
+    font-weight: 600;
 }
 a:hover, a:active {
     color: #fff;
