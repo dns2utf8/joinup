@@ -7,7 +7,12 @@
 
 <h1>Your profile</h1>
 
-You username: <span class="box">{% user_display user %}</span class="box">
+<p>
+    Your username: <span class="box">{% user_display user %}</span class="box">
+</p>
+<p>
+    Your email address: <span class="box">{{ user.email }}</span>
+</p>
 
 <h2>Actions</h2>
 <ul>
