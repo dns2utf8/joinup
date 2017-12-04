@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>{% if page_title %} {{ page_title }} - {% endif %} JoinUp</title>
     <link rel="stylesheet" href="{% static 'joinup/base.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <link rel="shortcut icon" href="{% static 'joinup/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'joinup/favicon.png' %}">
 </head>
 <body>
     <header>
@@ -13,8 +15,17 @@
             <h1><a href="/">JoinUp</a></h1>
         </div>
         <div class="buttons">
-            <a href="/accounts/signup">Signup</a>
-            <a href="/accounts/login">Login</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'events_create_group' %}">Create Group</a>
+
+            <a href="#">
+                <a href="{% url 'profile_page_self' %}">Profile</a>
+                <a href="{% url 'account_logout' %}">Log out</a>
+            </a>
+            {% else %}
+            <a href="{% url 'account_signup' %}">Sign up</a>
+            <a href="{% url 'account_login' %}">Log in</a>
+            {% endif %}
         </div>
     </header>
     <section>
@@ -22,7 +33,7 @@
         {% endblock %}
     </section>
     <footer>
-        <div>See the source on <a href="#source-link">"Plattform"</a>.</div>
+        <div>See the source on <a href="https://github.com/dns2utf8/joinup">Github</a>.</div>
         <div class="links">
             <a href="{% url 'page_imprint' %}">Imprint</a>
             <a href="{% url 'page_about' %}">About</a>

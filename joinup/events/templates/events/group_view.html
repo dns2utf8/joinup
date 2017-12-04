@@ -13,6 +13,10 @@
       <p>Location: {{ event.location }}</p>
       <p>{{ event.text }}</p>
   </div>
+{% empty %}
+    <div class="box">
+        No event scheduley yet.
+    </div>
 {% endfor %}
 
 {% endblock %}

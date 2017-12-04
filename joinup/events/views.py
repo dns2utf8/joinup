@@ -40,3 +40,17 @@ def tag_view(request, tag_name):
         'tag': tag,
         'groups': groups,
     })
+
+
+def create_group(request):
+    return render(request, 'events/create_group.html', {
+        'page_title': 'Create group',
+    })
+
+
+def create_event(request, group_name):
+    group = get_object_or_404(Group, name_url=group_name)
+    return render(request, 'events/welcome.html', {
+        'page_title': 'Create event',
+        'group': group
+    })

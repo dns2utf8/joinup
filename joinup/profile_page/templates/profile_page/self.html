@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load account %}
+{% load socialaccount %}
+
+{% block content %}
+
+<h1>Your profile</h1>
+
+You username: <span class="box">{% user_display user %}</span class="box">
+
+<h2>Actions</h2>
+<ul>
+    <li><a href="{% url 'account_change_password' %}">Change your password</a></li>
+</ul>
+
+
+<!--
+<h2>Connected accounts</h2>
+
+{% get_providers as socialaccount_providers %}
+-->
+
+
+{% endblock %}
