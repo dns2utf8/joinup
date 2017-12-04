@@ -92,6 +92,9 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+ACCOUNT_EMAIL_REQUIRED=True
+# allow login with username and email
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 TEMPLATES = [
     {
