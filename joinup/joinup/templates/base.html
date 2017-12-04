@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load gravatar %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,10 @@
             <a href="{% url 'events_create_group' %}">Create Group</a>
 
             <a href="#">
-                <a href="{% url 'profile_page_self' %}">Profile</a>
+                <a href="{% url 'profile_page_self' %}">
+                    Profile
+                    {% gravatar user.email 24 %}
+                </a>
                 <a href="{% url 'account_logout' %}">Log out</a>
             </a>
             {% else %}

@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% load account %}
 {% load socialaccount %}
+{% load gravatar %}
 
 {% block content %}
 
@@ -10,13 +11,24 @@
 <p>
     Your username: <span class="box">{% user_display user %}</span class="box">
 </p>
+
+<hr>
+
 <p>
     Your email address: <span class="box">{{ user.email }}</span>
 </p>
 
+<hr>
+
+<p>
+    Your picture: <span class="box">{% gravatar user.email 80 %}</span>
+</p>
+
+
 <h2>Actions</h2>
 <ul>
     <li><a href="{% url 'account_change_password' %}">Change your password</a></li>
+    <li><a href="https://gravatar.com" target="_blank">Change your picture</a></li>
 </ul>
 
 

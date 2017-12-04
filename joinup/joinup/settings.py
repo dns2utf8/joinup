@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.meetup',
     #'allauth.socialaccount.providers.twitter',
 
+    'django_gravatar',
+
     # local modules
     'events',
     'pages',

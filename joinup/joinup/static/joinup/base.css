@@ -44,6 +44,12 @@ header a {
 header a:hover, header a:active {
     color: #fff;
 }
+header a img {
+    height: calc(1em - 2px);
+    width: calc(1em - 2px);
+    border: 1px solid #fff;
+    border-radius: 0.5em;
+}
 header > div.buttons {
     display: flex;
     flex-grow: 1;
