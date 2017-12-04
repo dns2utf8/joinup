@@ -85,6 +85,16 @@ SITE_ID = 1
 
 ROOT_URLCONF = 'joinup.urls'
 
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'email',
+            'read:org',
+        ],
+    }
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
