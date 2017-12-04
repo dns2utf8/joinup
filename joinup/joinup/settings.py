@@ -88,9 +88,7 @@ ROOT_URLCONF = 'joinup.urls'
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
-            'user',
             'user:email',
-            'read:org',
         ],
     }
 }
