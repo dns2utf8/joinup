@@ -24,8 +24,8 @@ This is the place to meet new people.
 <h2>Checkout the latest groups</h2>
 <div class="grid">
 {% for group in groups %}
-    <a href="{% url 'group_view' group_name=group.name %}">
-        {{ tag.name }}
+    <a href="{% url 'group_view' group_name=group.name_url %}">
+        {{ group.name }}
     </a>
 {% empty %}
     <div>
