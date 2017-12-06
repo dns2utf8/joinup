@@ -19,7 +19,13 @@ function run_search() {
     var query = input.value;
     query = query.trim()
                 .split('/')[0]; // TODO correctly encode the query
-    location.pathname = '/search/'+input.value;
+
+    if (query === '') {
+        input.value = '';
+        input.focus();
+    } else {
+        location.pathname = '/search/'+input.value;
+    }
 }
 
 })();
