@@ -19,7 +19,7 @@
 <h2>Events matching {{ query }}</h2>
 <div class="grid">
 {% for event in events %}
-    <a href="{% url 'group_view' group_name=group.name_url %}">
+    <a href="{% url 'event_detail' group_name=event.group.name_url event_name=event.name_url %}">
         {{ event.name }}
     </a>
 {% empty %}

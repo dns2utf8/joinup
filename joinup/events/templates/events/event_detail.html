@@ -3,13 +3,21 @@
 
 {% block content %}
 
-<h1>Welcome to {{ event.name }}</h1>
+<h1>{{ event.name }}</h1>
+
+<h2>
+    <i>by</i>
+    <a href="{% url 'group_view' group_name=event.group.name_url %}">
+        {{ event.group.name }}
+    </a>
+</h2>
 
 <div class="box">
-  <h2><a href="{% url 'event_detail' group_name=event.group.name_url event_name=event.name_url %}">
-      {{ event.name }}</a></h2>
   <p>Location: {{ event.location }}</p>
-  <p>{{ event.text }}</p>
+  <p>Starting time: {{ event.time_start }}</p>
+  <p>Ending time: {{ event.time_end }}</p>
 </div>
+
+<p>{{ event.text }}</p>
 
 {% endblock %}
