@@ -1,4 +1,6 @@
 (function() {
+'use strict'
+
 var tags = document.querySelectorAll('.grid > *');
 for (var i = 0; i < tags.length; ++i) {
     var tag = tags[i];

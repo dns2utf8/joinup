@@ -101,14 +101,22 @@ footer > div.links > *:last-child {
 }
 
 .event_search_box {
+    display: flex;
     border-bottom: 1px solid #b6b68d;
 }
+#event_search_box {
+    flex-grow: 1;
+}
 
-.box {
+.box, button {
     margin: 0.1rem;
     border: #ddd 1px solid;
     border-radius: 1rem;
     padding: 1rem;
+}
+
+button {
+    background: #ddd;
 }
 
 .grid {
