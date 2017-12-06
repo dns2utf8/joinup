@@ -6,7 +6,7 @@
 <h1>Welcome to {{ event.name }}</h1>
 
 <div class="box">
-  <h2><a href="{% url 'event_detail' group_name=group.name_url event_name=event.name_url %}">
+  <h2><a href="{% url 'event_detail' group_name=event.group.name_url event_name=event.name_url %}">
       {{ event.name }}</a></h2>
   <p>Location: {{ event.location }}</p>
   <p>{{ event.text }}</p>

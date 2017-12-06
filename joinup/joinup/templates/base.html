@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
     <link rel="shortcut icon" href="{% static 'joinup/favicon.png' %}">
     <link rel="apple-touch-icon" href="{% static 'joinup/favicon.png' %}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#b6b68d">
 </head>
 <body>
     <header>
@@ -32,6 +33,7 @@
             {% endif %}
         </div>
     </header>
+    {% include 'events/search_box.html' %}
     <section>
         {% block content %}
         {% endblock %}

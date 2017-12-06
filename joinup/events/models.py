@@ -14,7 +14,7 @@ class Group(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
     name = models.CharField(max_length=4000, unique=True)
     name_url = models.CharField(max_length=4000, unique=True)
-    text = models.TextField()
+    text = models.TextField(db_index=True)
     created_date = models.DateTimeField()
 
     #def prepare_database_save(self, field):

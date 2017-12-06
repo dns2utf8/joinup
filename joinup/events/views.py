@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.http import HttpResponse
@@ -28,12 +29,12 @@ def group_view(request, group_name):
 
 
 def event_detail(request, group_name, event_name):
-    group = get_object_or_404(Group, name_url=group_name)
-    print("Group")
-    event = get_object_or_404(Event, group=group.id, name_url=event_name)
+    #group = get_object_or_404(Group, name_url=group_name)
+    #event = get_object_or_404(Event, group=group.id, name_url=event_name)
+    event = get_object_or_404(Event, group__name_url=group_name, name_url=event_name)
     return render(request, 'events/event_detail.html', {
         'page_title': event.name,
-        'group': group,
+        #'group': group,
         'event': event,
     })
 
@@ -58,7 +59,7 @@ def create_group(request):
             group.name = name
             group.name_url = first_upper_case(slugify(name))
 
-            #group.created_date = timezone.now()
+            group.created_date = timezone.now()
             group.save()
             group.members.add(request.user)
 
@@ -78,6 +79,20 @@ def create_event(request, group_name):
         'page_title': 'Create event',
         'group': group,
     })
+
+def search(request, query):
+    q = Q(name__icontains=query) | Q(name_url__icontains=query) | Q(text__icontains=query)
+    groups = Group.objects.filter(q)
+    events = Event.objects.filter(q)
+    return render(request, 'events/search_view.html', {
+        'page_title': 'Create event',
+        'query': query,
+        'event_search_box_query': query,
+        'groups': groups,
+        'events': events,
+    })
+
+########################################################################
 
 def first_upper_case(name):
     first_letter = name[0].upper()

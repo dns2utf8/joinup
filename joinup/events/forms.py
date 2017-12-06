@@ -6,4 +6,4 @@ class GroupForm(forms.ModelForm):
 
     class Meta:
         model = Group
-        exclude = ('members', 'name_url',)
+        exclude = ('members', 'name_url', 'created_date')

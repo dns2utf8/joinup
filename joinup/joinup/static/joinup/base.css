@@ -45,6 +45,7 @@ header a:hover, header a:active {
     color: #fff;
 }
 header a img {
+    display: inline-block;
     height: calc(1em - 2px);
     width: calc(1em - 2px);
     border: 1px solid #fff;
@@ -71,6 +72,15 @@ section {
     padding: 2rem;
     background: #fff;
 }
+section > *:first-child {
+    margin-top: 0rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.0em;
+    margin-bottom: 0.7em;
+}
+
 
 footer, footer * {
     color: #fff;
@@ -88,6 +98,10 @@ footer > div.links > * {
 }
 footer > div.links > *:last-child {
     border: 0px none;
+}
+
+.event_search_box {
+    border-bottom: 1px solid #b6b68d;
 }
 
 .box {

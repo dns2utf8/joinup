@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Results for {{ query }}:</h1>
+
+<h2>Groups matching {{ query }}</h2>
+<div class="grid">
+{% for group in groups %}
+    <a href="{% url 'group_view' group_name=group.name_url %}">
+        {{ group.name }}
+    </a>
+{% empty %}
+    <div>No matching groups</div>
+{% endfor %}
+</div>
+
+<h2>Events matching {{ query }}</h2>
+<div class="grid">
+{% for event in events %}
+    <a href="{% url 'group_view' group_name=group.name_url %}">
+        {{ event.name }}
+    </a>
+{% empty %}
+    <div>No matching events</div>
+{% endfor %}
+</div>
+
+{% endblock %}

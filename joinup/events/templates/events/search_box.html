@@ -1,0 +1,8 @@
+{% load staticfiles %}
+
+<section class="event_search_box">
+    <input id="event_search_box" type="text" value="{{ event_search_box_query }}">
+    <button type="submit">Search</button>
+</section>
+
+<script src="{% static 'events/search_box.js' %}"></script>
