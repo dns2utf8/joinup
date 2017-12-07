@@ -24,7 +24,7 @@ function run_search() {
         input.value = '';
         input.focus();
     } else {
-        location.pathname = '/search/'+input.value;
+        location.pathname = '/search/'+input.value+'/';
     }
 }
 
