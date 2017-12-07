@@ -81,7 +81,6 @@ def create_event(request, group_name):
     })
 
 def search(request, query):
-    query = str(query) # TODO need str()?
     words = filter(None, query.strip().split(' '))
     condition_groups = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) for w in words]
     condition_events = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) | Q(location__icontains=w) for w in words]
@@ -90,7 +89,7 @@ def search(request, query):
     groups = Group.objects.filter(*condition_groups)
     events = Event.objects.filter(*condition_events)
     return render(request, 'events/search_view.html', {
-        'page_title': 'Create event',
+        'page_title': 'Search "'+ query +'"',
         'query': query,
         'event_search_box_query': query,
         'groups': groups,
