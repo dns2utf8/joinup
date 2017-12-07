@@ -5,7 +5,8 @@
 
 <h1>Results for {{ query }}:</h1>
 
-<h2>Groups matching {{ query }}</h2>
+<h2>{% if groups|length == 0 %} No {% else %} {{ groups|length }} {% endif %}
+    Groups matching "{{ query }}"</h2>
 <div class="grid">
 {% for group in groups %}
     <a href="{% url 'group_view' group_name=group.name_url %}">
@@ -16,11 +17,13 @@
 {% endfor %}
 </div>
 
-<h2>Events matching {{ query }}</h2>
+<h2>{% if events|length == 0 %} No {% else %} {{ events|length }} {% endif %}
+    Events matching "{{ query }}"</h2>
 <div class="grid">
 {% for event in events %}
     <a href="{% url 'event_detail' group_name=event.group.name_url event_name=event.name_url %}">
-        {{ event.name }}
+        {{ event.name }} <br>
+        <i>by</i> {{ event.group.name }}
     </a>
 {% empty %}
     <div>No matching events</div>
