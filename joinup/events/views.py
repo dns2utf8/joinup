@@ -82,14 +82,13 @@ def create_event(request, group_name):
 
 def search(request, query):
     query = str(query) # TODO need str()?
-    s = query.strip().split(' ')
-    s = filter(lambda e: e != '', s)
-    s = map(lambda s: Q(name__icontains=s) | Q(name_url__icontains=s) | Q(text__icontains=s), s)
-    q = list(s) # TODO maybe do not use a list here
+    words = filter(None, query.strip().split(' '))
+    condition_groups = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) for w in words]
+    condition_events = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) | Q(location__icontains=w) for w in words]
 
-    groups = Group.objects.filter(*q)
-    # TODO search location field
-    events = Event.objects.filter(*q)
+
+    groups = Group.objects.filter(*condition_groups)
+    events = Event.objects.filter(*condition_events)
     return render(request, 'events/search_view.html', {
         'page_title': 'Create event',
         'query': query,
