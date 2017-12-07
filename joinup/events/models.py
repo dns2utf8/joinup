@@ -12,8 +12,8 @@ class Tag(models.Model):
 class Group(models.Model):
     members = models.ManyToManyField('auth.User')
     tags = models.ManyToManyField(Tag, blank=True)
-    name = models.CharField(max_length=4000, unique=True)
-    name_url = models.CharField(max_length=4000, unique=True)
+    name = models.CharField(max_length=2000, unique=True)
+    name_url = models.CharField(max_length=2000, unique=True)
     text = models.TextField(db_index=True)
     created_date = models.DateTimeField()
 
@@ -35,8 +35,8 @@ class Group(models.Model):
 class Event(models.Model):
     group = models.ForeignKey(Group, on_delete=models.PROTECT)
     organizers = models.ManyToManyField('auth.User')
-    name = models.CharField(max_length=5000)
-    name_url = models.CharField(max_length=5000)
+    name = models.CharField(max_length=2000)
+    name_url = models.CharField(max_length=2000)
     text = models.TextField()
     location = models.CharField(max_length=5000, blank=True, null=True)
     time_start = models.DateTimeField(blank=True, null=True)
