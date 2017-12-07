@@ -81,10 +81,9 @@ def create_event(request, group_name):
     })
 
 def search(request, query):
-    words = filter(None, query.strip().split(' '))
+    words = list(filter(None, query.strip().split(' ')))
     condition_groups = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) for w in words]
     condition_events = [Q(name__icontains=w) | Q(name_url__icontains=w) | Q(text__icontains=w) | Q(location__icontains=w) for w in words]
-
 
     groups = Group.objects.filter(*condition_groups)
     events = Event.objects.filter(*condition_events)
