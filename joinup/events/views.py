@@ -10,8 +10,8 @@ from .models import Group, Event, Comment, Tag
 
 # Create your views here.
 def welcome(request):
-    tags = Tag.objects.all()
-    groups = Group.objects.all()
+    tags = Tag.objects.all()[:20]
+    groups = Group.objects.all()[:20]
     return render(request, 'events/welcome.html', {
         'page_title': 'Discover',
         'tags': tags,
@@ -81,9 +81,15 @@ def create_event(request, group_name):
     })
 
 def search(request, query):
-    q = Q(name__icontains=query) | Q(name_url__icontains=query) | Q(text__icontains=query)
-    groups = Group.objects.filter(q)
-    events = Event.objects.filter(q)
+    query = str(query) # TODO need str()?
+    s = query.strip().split(' ')
+    s = filter(lambda e: e != '', s)
+    s = map(lambda s: Q(name__icontains=s) | Q(name_url__icontains=s) | Q(text__icontains=s), s)
+    q = list(s) # TODO maybe do not use a list here
+
+    groups = Group.objects.filter(*q)
+    # TODO search location field
+    events = Event.objects.filter(*q)
     return render(request, 'events/search_view.html', {
         'page_title': 'Create event',
         'query': query,
